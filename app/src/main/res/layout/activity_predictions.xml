@@ -48,7 +48,7 @@
         android:shadowRadius="25"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        android:onClick="addspot"/>
+        android:onClick="dbtest"/>
 
     <TextView
         android:text="@string/nearest"

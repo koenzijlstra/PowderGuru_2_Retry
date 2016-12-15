@@ -33,6 +33,7 @@
     <string name="sign_in_with_your_google_account">Sign in with your Google account</string>
     <string name="sign_out2">Sign Out</string>
     <string name="saved_spots">Saved Spots</string>
+    <string name="log_out">Log Out</string>
 
 
 </resources>

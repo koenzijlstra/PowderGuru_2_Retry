@@ -7,12 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
-
-//import com.google.firebase.auth.FirebaseAuth;
-//import com.google.firebase.auth.FirebaseUser;
-//import com.google.firebase.database.DatabaseReference;
-//import com.google.firebase.database.FirebaseDatabase;
 
 public class PredictionsActivity extends AppCompatActivity {
 
@@ -140,7 +139,21 @@ public class PredictionsActivity extends AppCompatActivity {
         finish();
     }
 
-//    public void addspot (View view){ //(String userid, String city)
+    public void dbtest (View view){
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+
+        Bundle extras = getIntent().getExtras();
+        String city = extras.getString("city");
+
+        // Cityobj saved = new Cityobj(city);
+
+        mDatabase.child("users").child(uid).child("cities").push().setValue(city);
+    }
+
+//
 //        Bundle extras = getIntent().getExtras();
 //        String city = extras.getString("city");
 //        City_object city_object = new City_object(city);
@@ -152,9 +165,7 @@ public class PredictionsActivity extends AppCompatActivity {
 //        assert user != null;
 //        String uid = user.getUid();
 //        DatabaseReference users = mDatabase.child("users");
-//        // ook nog databaseref uid aanmaken?
 //
-//        // setvalue wordt later put?
 //        mDatabase.child("users").child(uid).setValue(city_object);
 //
 //        // succesvol, toast
