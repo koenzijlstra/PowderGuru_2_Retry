@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -17,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth.AuthStateListener authListener;
     private FirebaseAuth auth;
+    EditText userinput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +53,33 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        userinput = (EditText) findViewById(R.id.userinput);
+
+//        DatabaseReference mDatabase;
+//        mDatabase = FirebaseDatabase.getInstance().getReference();
+//
+//        FirebaseAuth.AuthStateListener mAuthListener = new FirebaseAuth.AuthStateListener() { // op internet: mauthlistener = alsdfjlsdf
+//            @Override
+//            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+//                FirebaseUser user = firebaseAuth.getCurrentUser();
+//                if (user != null) {
+//                    String uid = user.getUid();
+//                    Log.d("geen null", uid);
+//                } else {
+//                    System.out.println("user is null");
+//                }
+//            }
+//        };
+
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//        if (user != null){
+//            String uid = user.getUid();
+//            Log.d("geen null", uid);
+//        } else {
+//            System.out.println("user is null");
+//        }
+
+
     }
 
     //sign out method
@@ -68,6 +98,26 @@ public class MainActivity extends AppCompatActivity {
         super.onStop();
         if (authListener != null) {
             auth.removeAuthStateListener(authListener);
+        }
+    }
+
+
+    public void seeSpots (View view){
+        Intent Spots = new Intent(this, SpotsActivity.class);
+        startActivity(Spots);
+
+    }
+
+    public void search(View view){
+        String input = userinput.getText().toString();
+
+        if (input.isEmpty()){
+            Toast.makeText(this, "Please enter a city", Toast.LENGTH_LONG).show();
+        }
+        else{
+            input = input.replace(" ", "+");
+            new SnowAsynctasks(MainActivity.this, input).execute();
+
         }
     }
 }
