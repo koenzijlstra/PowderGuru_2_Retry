@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">PowderGuru2</string>
+    <string name="action_sign_in_short">Register</string>
+    <string name="email">Email</string>
+    <string name="auth_failed">Wrong email or password. Try again or register</string>
+    <string name="title_activity_profile">Firebase</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="enter_your_email_and_a_password_to_register_to_pg">Enter your email and a password to register to PG</string>
+    <string name="powder_guru">Powder Guru</string>
+    <string name="login">login</string>
+    <string name="emaill">Email</string>
+    <string name="no_pg_account_register">No PG account? Register!</string>
+    <string name="sign_out">Sign out</string>
+    <string name="password">Password</string>
+
+</resources>
