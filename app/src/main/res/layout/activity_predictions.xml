@@ -70,16 +70,57 @@
         android:layout_centerHorizontal="true"
         android:textColor="@color/white"/>
 
+    <TextView
+        android:text="@string/max_temp_10_c"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/max"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:layout_below="@+id/query"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="41dp" />
+
+    <TextView
+        android:text="@string/min_temp_10_c"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/min"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:layout_below="@+id/max"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="@string/temp_at_1200_5_c"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/temp12"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:layout_below="@+id/min"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp" />
+
+    <TextView
+        android:text="@string/chance_of_sunshine_98"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sun"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:layout_below="@+id/temp12"
+        android:layout_centerHorizontal="true" />
+
     <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:rowCount="4"
         android:columnCount="2"
-        android:layout_marginTop="14dp"
         android:id="@+id/grid"
         android:layout_below="@+id/textView16"
         android:layout_centerHorizontal="true"
-        >
+        android:layout_marginTop="11dp">
 
         <TextView
             android:text="TextView"
@@ -157,56 +198,17 @@
     </GridLayout>
 
     <TextView
-        android:text="@string/chance_of_sunshine_98"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/sun"
-        android:textSize="16sp"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:textColor="@color/white"/>
-
-    <TextView
         android:text="@string/chance_of_snowfall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView16"
-        android:layout_marginTop="33dp"
         android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
         android:layout_below="@+id/sun"
-        android:layout_centerHorizontal="true"
-        android:textColor="@color/white"/>
-
-    <TextView
-        android:text="@string/temp_at_1200_5_c"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/temp12"
-        android:textSize="16sp"
-        android:layout_above="@+id/sun"
-        android:layout_centerHorizontal="true"
-        android:textColor="@color/white"/>
-
-    <TextView
-        android:text="@string/min_temp_10_c"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/min"
-        android:textSize="16sp"
-        android:layout_marginBottom="10dp"
-        android:layout_above="@+id/temp12"
-        android:layout_centerHorizontal="true"
-        android:textColor="@color/white"/>
-
-    <TextView
-        android:text="@string/max_temp_10_c"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/max"
-        android:textSize="16sp"
-        android:layout_above="@+id/min"
-        android:layout_centerHorizontal="true"
-        android:textColor="@color/white"/>
+        android:layout_alignLeft="@+id/grid"
+        android:layout_alignStart="@+id/grid"
+        android:layout_marginTop="38dp" />
 
 </RelativeLayout>
 

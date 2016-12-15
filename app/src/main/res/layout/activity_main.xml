@@ -58,21 +58,6 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:id="@+id/sign_out"
-        style="?android:textAppearanceSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/buttonshape"
-        android:text="@string/log_out"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:textSize="15sp"
-        android:layout_marginBottom="18dp"
-        android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/textView"
-        android:layout_toStartOf="@+id/textView" />
-
-    <Button
         android:text="@string/saved"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -89,6 +74,23 @@
         android:layout_alignTop="@+id/sign_out"
         android:layout_alignRight="@+id/button"
         android:layout_alignEnd="@+id/button" />
+
+    <Button
+        android:id="@+id/sign_out"
+        style="?android:textAppearanceSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buttonshape"
+        android:text="@string/log_out"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:layout_marginBottom="17dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp" />
 
 
 </RelativeLayout>
