@@ -14,4 +14,24 @@
     <string name="sign_out">Sign out</string>
     <string name="password">Password</string>
 
+
+    <string name="instructions">Search for a city or town below to get the snow forecast from the nearest ski resort</string>
+    <string name="city">City</string>
+    <string name="search">Search</string>
+    <string name="saved">Saved spots</string>
+    <string name="add">Save</string>
+    <string name="title">Powder Guru</string>
+    <string name="nearest">"Nearest Spot"</string>
+    <string name="temp_at_1200_5_c">Temp (at 1200): 5°C</string>
+    <string name="chance_of_sunshine_98">Chance of sunshine: 98%</string>
+    <string name="min_temp_10_c">Min temp = 10 °C</string>
+    <string name="max_temp_10_c">Max temp = 10 °C</string>
+    <string name="chance_of_snowfall">Chance of snowfall:</string>
+
+
+    <string name="welcome_to">Welcome to</string>
+    <string name="sign_in_with_your_google_account">Sign in with your Google account</string>
+    <string name="sign_out2">Sign Out</string>
+
+
 </resources>

@@ -8,7 +8,7 @@
     android:background="@color/darkblue">
 
     <TextView
-        android:text="@string/powder_guru"
+        android:text="Powder guru"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="59dp"
@@ -20,17 +20,75 @@
         android:textColor="@color/white"/>
 
     <Button
+        android:text="@string/search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button"
+        android:onClick="search"
+        android:background="@drawable/buttonshape2"
+        android:textColor="@color/white"
+        android:layout_alignTop="@+id/userinput"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="11dp"
+        android:layout_marginEnd="11dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="@string/city"
+        android:ems="10"
+        android:id="@+id/userinput"
+        android:textColorHint="@color/bluegrey"
+        android:textColor="@color/white"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/button2"
+        android:layout_toStartOf="@+id/button2" />
+
+    <TextView
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:text="@string/instructions"
+        android:id="@+id/textVieww"
+        android:layout_marginBottom="13dp"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:layout_above="@+id/button"
+        android:layout_centerHorizontal="true" />
+
+    <Button
         android:id="@+id/sign_out"
         style="?android:textAppearanceSmall"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:text="@string/sign_out"
+        android:background="@drawable/buttonshape"
+        android:text="@string/sign_out2"
         android:textColor="@android:color/white"
         android:textStyle="bold"
+        android:textSize="15sp"
+        android:layout_marginBottom="18dp"
         android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/textView"
+        android:layout_toStartOf="@+id/textView" />
 
-        android:layout_marginBottom="27dp" />
+    <Button
+        android:text="@string/saved"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button2"
+        android:onClick="seeSpots"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:background="@drawable/buttonshape"
+        android:shadowColor="#4F90A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="25"
+        android:layout_alignTop="@+id/sign_out"
+        android:layout_alignRight="@+id/button"
+        android:layout_alignEnd="@+id/button" />
 
 
 </RelativeLayout>
