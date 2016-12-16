@@ -4,69 +4,63 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-
 import java.util.ArrayList;
 import java.util.List;
 
-// in this class the dbhelper is initialized, crud methods are defined
+/*
+* Koen Zijlstra, 10741615
+*
+* In this class the dbhelper is initialized and crud methods are defined.
+*/
+
 public class DBmanager {
 
     private DBhelper dbHelper;
-    private Context context;
     private SQLiteDatabase database;
 
-    // construct new dbhelper
+    // constructor
     public DBmanager(Context c){
         dbHelper = new DBhelper(c);
         // open database connection
         database = dbHelper.getWritableDatabase();
     }
 
-//    // close the database (not used yet, even necessary??)
-//    public void close(){
-//        database.close();
-//    }
-
-    // create todo_object , insert into database
+    // create todo_object , insert into database. needs string (the name of a city) as argument
     public void insert (String citystring){
         ContentValues contentValues = new ContentValues();
         contentValues.put("city", citystring);
         contentValues.put("checked", Boolean.FALSE);
-
         // insert into database
         database.insert("dbcity", null, contentValues);
     }
 
-    // update check todo_update nodig??
-
-    // delete todo_object from database
+    // delete city object from database
     public void delete (int cityid){
         database.delete("dbcity", "id = "+ cityid, null);
     }
-    // maybe use: ?, new String[ ] {String.valueOf(id)} );
 
-    // get all the todo_objects
+    // get all the city objects
     public List getallcities (){
         // create new arraylist
         List allcities = new ArrayList();
 
         // columns we want to know, used by cursor
-        String[] todocolumns = new String[] {"id","city", "checked"};
+        String[] citycolumns = new String[] {"id","city", "checked"};
 
-        // get values of the defined columns per row, cursor starts at first todo_
-        Cursor cursor = database.query("dbcity", todocolumns, null, null, null, null, null);
+        // get values of the defined columns per row, cursor starts at first city
+        Cursor cursor = database.query("dbcity", citycolumns, null, null, null, null, null);
         cursor.moveToFirst();
 
-        // get values, create new todo_object, add all todos to the arraylist
+        // get values, create new city object, add all cities to the arraylist
         while (!cursor.isAfterLast()) {
-            Cityobj todo = new Cityobj(cursor.getInt(0), cursor.getString(1), (cursor.getInt(2) == 1));
+            Cityobj city = new Cityobj(cursor.getInt(0), cursor.getString(1), (cursor.getInt(2) == 1));
 
-            // Add to the arraylist "alltodos"
-            allcities.add(todo);
+            // Add to the arraylist "allcities"
+            allcities.add(city);
 
-            // see if todo_ is checked
-            todo.ischecked();
-            // Move to the next column
+            // see if city is checked
+            city.ischecked();
+            // Move to the next row
             cursor.moveToNext();
         }
         return allcities;
