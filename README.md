@@ -1,7 +1,7 @@
 # PowderGuru
 
 #Short: 
-App that lets users search for cities and returns (ski) weather forecast for the next day.
+App that lets users search for a city and returns (ski) weather forecast for the next day.
 
 #Long:
 On the launcer activity (login) Powder guru lets user log in with his email and password. When the user does not have an account yet,
