@@ -28,13 +28,12 @@ with all the others) in SavedSpots activity. In SavedSpots Activity, the user ca
 
 
 ![alt tag](https://github.com/koenzijlstra/PowderGuru_2_Retry/blob/master/docs/PG1.png)
-![alt tag](https://github.com/koenzijlstra/PowderGuru_2_Retry/blob/master/docs/PG2.png)
 ![alt tag](https://github.com/koenzijlstra/PowderGuru_2_Retry/blob/master/docs/PG3.png)
-![alt tag](https://github.com/koenzijlstra/PowderGuru_2_Retry/blob/master/docs/PG4.png)
 ![alt tag](https://github.com/koenzijlstra/PowderGuru_2_Retry/blob/master/docs/PG5.png)
-![alt tag](https://github.com/koenzijlstra/PowderGuru_2_Retry/blob/master/docs/PG6.png)
 ![alt tag](https://github.com/koenzijlstra/PowderGuru_2_Retry/blob/master/docs/PG7.png)
-![alt tag](https://github.com/koenzijlstra/PowderGuru_2_Retry/blob/master/docs/PG8.png)
 ![alt tag](https://github.com/koenzijlstra/PowderGuru_2_Retry/blob/master/docs/PG9.png)
+![alt tag](https://github.com/koenzijlstra/PowderGuru_2_Retry/blob/master/docs/PG2.png)
+![alt tag](https://github.com/koenzijlstra/PowderGuru_2_Retry/blob/master/docs/PG4.png)
+![alt tag](https://github.com/koenzijlstra/PowderGuru_2_Retry/blob/master/docs/PG6.png)
+![alt tag](https://github.com/koenzijlstra/PowderGuru_2_Retry/blob/master/docs/PG8.png)
 ![alt tag](https://github.com/koenzijlstra/PowderGuru_2_Retry/blob/master/docs/PG10.png)
-
