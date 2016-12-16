@@ -13,8 +13,6 @@ the Predictions Activity where info about temperature, chance of sunshine and ch
 user can navigate to the SavedSpots activity, or save the current city. Saving it creates a new city object, that will be shown (together 
 with all the others) in SavedSpots activity. In SavedSpots Activity, the user can click on each city to get the latest forecasts. User can also check each item (when already visited the place), or delete an item by holding it.
 
-Screenshots of app are in docs
-
 # Java files:
 -Cityobj
 -DBhelper
@@ -27,3 +25,5 @@ Screenshots of app are in docs
 -SignupActivity
 -SnowAsynctasks
 -SpotsActivity
+
+![alt tag](https://github.com/koenzijlstra/PowderGuru_2_Retry/blob/master/docs/PG1.png)
