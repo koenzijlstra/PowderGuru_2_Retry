@@ -57,6 +57,17 @@ public class SpotsActivity extends AppCompatActivity {
         dBmanager = new DBmanager(getApplicationContext());
         listView = (ListView) findViewById(R.id.spots);
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                Cityobj clickedspot = (Cityobj) adapterView.getItemAtPosition(position);
+                String clicked = clickedspot.getText();
+                // clickedspot = clickedspot.replace(" ", "+");
+                new SnowAsynctasks(SpotsActivity.this, clicked).execute();
+                finish();
+            }
+        });
+
         if (savedInstanceState != null) {
             allcities = savedInstanceState.getParcelableArrayList("alkey");
             listadapter = new Listadapter(getApplicationContext(), allcities);

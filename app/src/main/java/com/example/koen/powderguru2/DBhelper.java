@@ -9,8 +9,7 @@ public class DBhelper extends SQLiteOpenHelper {
 
     // table name, database name and database version
     public static final String TABLE_NAME = "dbcity";
-    static final String DB_NAME = "dbtodo.db";
-    static final int DATABASE_VERSION = 9;
+    static final int DATABASE_VERSION = 11;
 
     // set fields of database schema. table collumns
     public static final String _ID = "id";
@@ -32,20 +31,24 @@ public class DBhelper extends SQLiteOpenHelper {
 
         // ugly written
         ContentValues first = new ContentValues();
-        first.put("city", "City, Country (Example)");
+        first.put("city", "Gerlos, Austria (Example)");
         first.put("checked", Boolean.FALSE);
         db.insert("dbcity", null, first);
 
+        ContentValues cityexample = new ContentValues();
+        cityexample.put("city", "Zell Am See, Austria");
+        cityexample.put("checked", Boolean.FALSE);
+        db.insert("dbcity", null, cityexample);
+
         ContentValues second = new ContentValues();
-        second.put("city", "Been there? check box to the right");
-        second.put("checked", Boolean.FALSE);
+        second.put("city", "Been there? Check box to the right");
+        second.put("checked", Boolean.TRUE);
         db.insert("dbcity", null, second);
 
         ContentValues third = new ContentValues();
         third.put("city", "Hold a spot to delete it");
         third.put("checked", Boolean.FALSE);
         db.insert("dbcity", null, third);
-
     }
 
     @Override
