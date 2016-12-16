@@ -13,7 +13,7 @@
     <string name="no_pg_account_register">No PG account? Register!</string>
     <string name="sign_out">Sign out</string>
     <string name="password">Password</string>
-    <string name="instructions">Search for a city or town below to get the snow forecast from the nearest ski resort</string>
+    <string name="instructions">Search for a city and country (optional) below to get the (ski) weather forecast for tomorrow. E.G Gerlos or Zell Am See, Austria</string>
     <string name="city">City</string>
     <string name="search">Search</string>
     <string name="saved">Saved spots</string>

@@ -56,6 +56,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/query"
+        android:textStyle="bold"
         android:layout_marginTop="22dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -68,7 +69,8 @@
         android:id="@+id/date"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:textSize="15sp"/>
 
     <TextView
         android:text="@string/max_temp_10_c"

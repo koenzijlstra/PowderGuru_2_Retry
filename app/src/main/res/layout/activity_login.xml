@@ -15,7 +15,7 @@
         android:id="@+id/textView"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textSize="32sp"
+        android:textSize="38sp"
         android:textStyle="bold"
         android:textColor="@color/white"/>
 

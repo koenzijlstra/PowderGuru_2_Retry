@@ -7,18 +7,6 @@
     tools:context=".MainActivity"
     android:background="@color/darkblue">
 
-    <TextView
-        android:text="Powder guru"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="59dp"
-        android:id="@+id/textView"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        android:textColor="@color/white"/>
-
     <Button
         android:text="@string/search"
         android:layout_width="wrap_content"
@@ -53,9 +41,12 @@
         android:id="@+id/textVieww"
         android:layout_marginBottom="13dp"
         android:textColor="@color/white"
-        android:textSize="15sp"
+        android:textSize="16sp"
         android:layout_above="@+id/button"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignLeft="@+id/userinput"
+        android:layout_alignStart="@+id/userinput"
+        android:layout_alignRight="@+id/button"
+        android:layout_alignEnd="@+id/button" />
 
     <Button
         android:text="@string/saved"
@@ -91,6 +82,18 @@
         android:layout_alignParentStart="true"
         android:layout_marginLeft="24dp"
         android:layout_marginStart="24dp" />
+
+    <TextView
+        android:text="Powder guru"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:id="@+id/textView"
+        android:textSize="38sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>
