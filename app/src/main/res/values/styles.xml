@@ -8,6 +8,9 @@
         <item name="colorAccent">@color/white</item>
     </style>
 
-
+    <style name="checkBoxStyle" parent="Theme.AppCompat.DayNight">
+        <item name="android:textColorSecondary">@color/white</item>
+        <item name="colorAccent">@color/white</item>
+    </style>
 
 </resources>

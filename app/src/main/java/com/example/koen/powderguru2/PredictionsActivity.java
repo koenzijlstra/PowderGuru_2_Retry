@@ -1,19 +1,37 @@
 package com.example.koen.powderguru2;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
+import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+import java.util.List;
+
+
+
 
 public class PredictionsActivity extends AppCompatActivity {
+
+
+    private ListView listView;
+    private DBmanager dBmanager;
+    private Listadapter listadapter;
+    private EditText editText;
+    private ArrayList<Cityobj> allcities;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -139,39 +157,37 @@ public class PredictionsActivity extends AppCompatActivity {
         finish();
     }
 
-    public void dbtest (View view){
-        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String uid = user.getUid();
-
+    public void addspot (View view){
         Bundle extras = getIntent().getExtras();
         String city = extras.getString("city");
 
-        // Cityobj saved = new Cityobj(city);
+        dBmanager = new DBmanager(getApplicationContext());
+        dBmanager.insert(city);
 
-        mDatabase.child("users").child(uid).child("cities").push().setValue(city);
+        String toast1 = "saved ";
+        String toastfull = toast1 + city;
+        Toast.makeText(this, toastfull, Toast.LENGTH_SHORT).show();
     }
 
+    // tijdgebrek, toch maar sql gaan gebruiken
+//    public void dbtest (View view){
+//        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+//
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//        String uid = user.getUid();
 //
 //        Bundle extras = getIntent().getExtras();
 //        String city = extras.getString("city");
-//        City_object city_object = new City_object(city);
-//        DatabaseReference mDatabase;
-//        mDatabase = FirebaseDatabase.getInstance().getReference();
 //
-//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//        // if (user != null) {
-//        assert user != null;
-//        String uid = user.getUid();
-//        DatabaseReference users = mDatabase.child("users");
+//        // Cityobj saved = new Cityobj(city);
 //
-//        mDatabase.child("users").child(uid).setValue(city_object);
-//
-//        // succesvol, toast
-//        //Toast.makeText(this, "jasss", Toast.LENGTH_LONG).show();
-//        // geen succes, toast
+//        mDatabase.child("users").child(uid).child("cities").push().setValue(city);
 //    }
+
+
+
+
 
 
 }
