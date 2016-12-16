@@ -4,14 +4,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.widget.Toast;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.IOException;
 
-
+/*
+* Koen Zijlstra, 10741615
+* Asynctasks class that gets all nessecary data from jsonobject. Uses context and the string that
+* the user entered as argument. When al info is gathered, start predictionsactivity (bad habit).
+ */
 public class SnowAsynctasks extends AsyncTask {
 
     private static Context context;
@@ -42,6 +44,7 @@ public class SnowAsynctasks extends AsyncTask {
         Toast.makeText(context, "Searching", Toast.LENGTH_SHORT).show();
     }
 
+    // get jsonobject, parse json and give right data to each string
     @Override
     protected Void doInBackground(Object[] params) {
         try{
@@ -52,17 +55,21 @@ public class SnowAsynctasks extends AsyncTask {
             city = req.getString("query");
             JSONArray weather = data.getJSONArray("weather");
             JSONObject tomorrow = weather.getJSONObject(1);
+
+            // get date of next day
             datetomorrow = tomorrow.getString("date");
 
+            // get fourth jsonobject from jsonarray hourly, which contains data from 12:00
             JSONArray hourly = tomorrow.getJSONArray("hourly");
             JSONObject twelve = hourly.getJSONObject(4);
 
+            // get temp and chanceofsunshine at 12:00
             Integer twelvetemp = twelve.getInt("tempC");
             temp12 = twelvetemp.toString();
-
             Integer twelvesun = twelve.getInt("chanceofsunshine");
             sun12 = twelvesun.toString();
 
+            // get max and min temperature of day
             Integer max = tomorrow.getInt("maxtempC");
             Integer min = tomorrow.getInt("mintempC");
             maxtemp = max.toString();
@@ -101,20 +108,21 @@ public class SnowAsynctasks extends AsyncTask {
             Integer twentyonesnow = twentyone.getInt("chanceofsnow");
             snowtwentyone = twentyonesnow.toString();
 
-
         } catch (JSONException | IOException e) {
             e.printStackTrace();
         }
         return null;
     }
 
+    // when doinbackground is done, give all info to intent and start new activity
     @Override
     protected void onPostExecute(Object o) {
         super.onPostExecute(o);
 
-
-        // niet netjes om intent in asynctask aan te roepen, van activity naar activity
+        // starting activity from asynctasks is a bad habit, but did not adjust because of a lack of time
         Intent gotoinfo = new Intent(context, PredictionsActivity.class);
+
+        // give all info (except snowfall) to intent
         gotoinfo.putExtra("city", city);
         gotoinfo.putExtra("date", datetomorrow);
         gotoinfo.putExtra("temp12", temp12);
@@ -131,8 +139,6 @@ public class SnowAsynctasks extends AsyncTask {
         gotoinfo.putExtra("15", snowfifteen);
         gotoinfo.putExtra("18", snoweighteen);
         gotoinfo.putExtra("21", snowtwentyone);
-
         context.startActivity(gotoinfo);
-
     }
 }

@@ -1,42 +1,35 @@
 package com.example.koen.powderguru2;
 
-
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView;
-import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.ArrayList;
-import java.util.List;
-
-
-
+/*
+* Koen Zijlstra, 10741615
+*
+* Activity that shows info about (ski) weather the next day. Started when user searched for a city in
+* MainActivity. User can navigate to saved spots (SpotsActivity), go back to main with device back button
+* or save the city that user is currently viewing. When save is clicked, the string "city" is given
+* to dbmanager, which creates a city object.
+*/
 
 public class PredictionsActivity extends AppCompatActivity {
-
-
-    private ListView listView;
     private DBmanager dBmanager;
-    private Listadapter listadapter;
-    private EditText editText;
-    private ArrayList<Cityobj> allcities;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_predictions);
+
+        setinfo();
+        setsnowpredictions();
+    }
+
+    // set all info except snow predictions
+    public void setinfo (){
 
         // get data from asynctasks
         Bundle extras = getIntent().getExtras();
@@ -46,16 +39,6 @@ public class PredictionsActivity extends AppCompatActivity {
         String suntwelve = extras.getString("sun");
         String max = extras.getString("max");
         String min = extras.getString("min");
-
-        // get snowpredictions
-        String zero = extras.getString("0");
-        String three = extras.getString("3");
-        String six = extras.getString("6");
-        String nine = extras.getString("9");
-        String twelve = extras.getString("12");
-        String fifteen = extras.getString("15");
-        String eighteen = extras.getString("18");
-        String twentyone = extras.getString("21");
 
         // set name of searched city
         TextView title = (TextView) findViewById(R.id.query);
@@ -95,9 +78,23 @@ public class PredictionsActivity extends AppCompatActivity {
         TextView mintemp = (TextView) findViewById(R.id.min);
         mintemp.setText(fullmin);
 
+    }
 
-        // set snowpredictions
+    // set snow predictions
+    public void setsnowpredictions(){
+        Bundle extras = getIntent().getExtras();
 
+        // get 3-hourly snowpredictions
+        String zero = extras.getString("0");
+        String three = extras.getString("3");
+        String six = extras.getString("6");
+        String nine = extras.getString("9");
+        String twelve = extras.getString("12");
+        String fifteen = extras.getString("15");
+        String eighteen = extras.getString("18");
+        String twentyone = extras.getString("21");
+
+        // set snowpredictions for all 8 moments
         TextView snow0 = (TextView) findViewById(R.id.nul);
         String snow01 = "00:00 : ";
         String snow02 = "%";
@@ -148,16 +145,15 @@ public class PredictionsActivity extends AppCompatActivity {
 
     }
 
+    // go to SpotsActivity
     public void seeSpots (View view){
-//        Bundle extras = getIntent().getExtras();
-//        String city = extras.getString("city");
         Intent Spots = new Intent(this, SpotsActivity.class);
-//        Spots.putExtra("city", city);
         startActivity(Spots);
         finish();
     }
 
-
+    // add current city to sql database by giving string "city" to db manager that inserts cityobject
+    // in table dbcity. toast saved + the name of the city
     public void addspot (View view){
         Bundle extras = getIntent().getExtras();
         String city = extras.getString("city");
@@ -169,25 +165,4 @@ public class PredictionsActivity extends AppCompatActivity {
         String toastfull = toast1 + city;
         Toast.makeText(this, toastfull, Toast.LENGTH_SHORT).show();
     }
-
-    // tijdgebrek, toch maar sql gaan gebruiken
-//    public void dbtest (View view){
-//        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-//
-//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//        String uid = user.getUid();
-//
-//        Bundle extras = getIntent().getExtras();
-//        String city = extras.getString("city");
-//
-//        // Cityobj saved = new Cityobj(city);
-//
-//        mDatabase.child("users").child(uid).child("cities").push().setValue(city);
-//    }
-
-
-
-
-
-
 }

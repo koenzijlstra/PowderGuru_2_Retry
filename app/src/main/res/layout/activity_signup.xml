@@ -21,6 +21,7 @@
 
     <Button
         android:id="@+id/register"
+        android:onClick="register"
         style="?android:textAppearanceSmall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -74,6 +75,7 @@
 
     <Button
         android:id="@+id/gotologin"
+        android:onClick="gotologin"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="@null"

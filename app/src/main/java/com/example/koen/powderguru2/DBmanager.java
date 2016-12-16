@@ -60,6 +60,7 @@ public class DBmanager {
 
             // see if city is checked
             city.ischecked();
+
             // Move to the next row
             cursor.moveToNext();
         }
