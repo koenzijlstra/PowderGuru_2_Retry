@@ -8,28 +8,33 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.CompoundButton;
-
 import java.util.List;
+
+/*
+* Koen Zijlstra, 10741615
+*
+* listadapter for the listview in spotsactivity. receives all city objects as argument
+ */
 
 public class Listadapter extends ArrayAdapter {
 
     // constructor
-    public Listadapter(Context context, List alltodos) {
-        super(context, 0, alltodos);
+    public Listadapter(Context context, List allcities) {
+        super(context, 0, allcities);
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        // data item at position
+        // get city object at position
         final Cityobj city = (Cityobj) getItem(position);
 
-        // xx comment xx
+        // use listitem.xml as layout for each item
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.listitem, parent, false);
         }
 
-        // find textview of item
+        // find textview of item, set text (string "city")
         TextView item = (TextView) convertView.findViewById(R.id.item);
         if (city != null) {
             item.setText((CharSequence) city.getText());
@@ -45,7 +50,7 @@ public class Listadapter extends ArrayAdapter {
             }
         });
 
-        // return the view of the row
+        // return the view of the row/item
         return convertView;
     }
 }
